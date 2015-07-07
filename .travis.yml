@@ -1,0 +1,26 @@
+language: c
+
+sudo: false
+
+env:
+  global:
+    - RACKET_DIR=~/racket
+  matrix:
+    - RACKET_VERSION=6.2
+    - RACKET_VERSION=HEAD
+
+before_install:
+  - git clone https://github.com/greghendershott/travis-racket.git
+  - cat travis-racket/install-racket.sh | bash
+  - export PATH="${RACKET_DIR}/bin:${PATH}"
+
+install:
+  - raco pkg install --deps search-auto --name alexis-collection-lens --link $TRAVIS_BUILD_DIR
+
+before_script:
+
+script:
+  - raco test -xp alexis-collection-lens
+  - raco cover -bf coveralls -d $TRAVIS_BUILD_DIR/coverage -p alexis-collection-lens
+
+after_script:
