@@ -1,6 +1,6 @@
 #lang racket/base
 
-(require doc-coverage
+(module+ test
+  (require doc-coverage
          alexis/collection/lens)
-
-(check-all-documented 'alexis/collection/lens)
+  (check-all-documented 'alexis/collection/lens))

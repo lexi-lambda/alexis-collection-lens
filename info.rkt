@@ -16,4 +16,5 @@
   '("at-exp-lib"
     "curly-fn"
     "rackunit-lib"
-    "racket-doc"))
+    "racket-doc"
+    "doc-coverage"))
