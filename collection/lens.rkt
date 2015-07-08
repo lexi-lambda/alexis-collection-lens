@@ -12,14 +12,14 @@
                          @{Constructs a lens that operates on @racket[indexable?] instances.
                            @(lens:examples
                              (lens-transform (ref-lens 'key)
-                                             (λ (x) (* 10 x))
-                                             (hash 'key 2)))}]
+                                             (hash 'key 2)
+                                             (λ (x) (* 10 x))))}]
          @proc-doc/names[nth-lens (exact-nonnegative-integer? . -> . lens?) (index)
                          @{Constructs a lens that operates on @racket[sequence?] instances.
                            @(lens:examples
                              (lens-transform (nth-lens 1)
-                                             (λ (x) (* 10 x))
-                                             '(1 2 3)))}])
+                                             '(1 2 3)
+                                             (λ (x) (* 10 x))))}])
 
 (define (ref-lens key)
   (make-lens (λ (target) (ref target key))
@@ -33,9 +33,9 @@
   (require rackunit)
   (test-case
    "ref-lens"
-   (check-equal? (lens-transform (ref-lens 'key) #{* 10} (hash 'key 2))
+   (check-equal? (lens-transform (ref-lens 'key) (hash 'key 2) #{* 10})
                  (hash 'key 20)))
   (test-case
    "nth-lens"
-   (check-equal? (lens-transform (nth-lens 1) #{* 10} '(1 2 3))
+   (check-equal? (lens-transform (nth-lens 1) '(1 2 3) #{* 10})
                  '(1 20 3))))
