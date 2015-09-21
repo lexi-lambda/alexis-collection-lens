@@ -11,10 +11,10 @@
   '("base"
     "alexis-collections"
     "lens"
+    "curly-fn"
     "scribble-lib"))
 (define build-deps
   '("at-exp-lib"
-    "curly-fn"
     "rackunit-lib"
     "racket-doc"
     "doc-coverage"))
