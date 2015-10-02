@@ -20,7 +20,7 @@ install:
 before_script:
 
 script:
-  - raco test -xp alexis-collection-lens
+  - raco test -p alexis-collection-lens
   - raco cover -bf coveralls -d $TRAVIS_BUILD_DIR/coverage -p alexis-collection-lens
 
 after_script:

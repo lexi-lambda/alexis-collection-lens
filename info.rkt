@@ -8,13 +8,15 @@
 (define scribblings '(("scribblings/main.scrbl" () (library) "alexis-collection-lens")))
 
 (define deps
-  '("base"
-    "alexis-collections"
-    "lens"
+  '("alexis-collections"
+    "base"
     "curly-fn"
+    "lens"
     "scribble-lib"))
 (define build-deps
   '("at-exp-lib"
+    "cover"
+    "cover-coveralls"
+    "doc-coverage"
     "rackunit-lib"
-    "racket-doc"
-    "doc-coverage"))
+    "racket-doc"))
