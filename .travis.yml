@@ -7,7 +7,6 @@ env:
     - RACKET_DIR=~/racket
   matrix:
     - RACKET_VERSION=6.2
-    - RACKET_VERSION=HEAD
 
 before_install:
   - git clone https://github.com/greghendershott/travis-racket.git
@@ -21,6 +20,5 @@ before_script:
 
 script:
   - raco test -p alexis-collection-lens
-  - raco cover -bf coveralls -d $TRAVIS_BUILD_DIR/coverage -p alexis-collection-lens
 
 after_script:
